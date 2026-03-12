@@ -10,11 +10,17 @@ int main() {
         return 1;
     }
 
+    
     printf("opened file\n");
 
+    int expected[] = {137, 80, 78, 71, 13, 10, 26, 10};
     for (int i = 0; i < 8; i++) {
         int byte = fgetc(fptr);
-        printf("%02x\n", byte);
+        if (byte != expected[i]) {
+            printf("Not a PNG");
+            fclose(fptr);
+            return 1;
+        }
     }
 
     fclose(fptr);
