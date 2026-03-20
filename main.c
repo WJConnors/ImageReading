@@ -3,7 +3,7 @@
 #include <stdbool.h>
 #include <string.h>
 
-#define PNG_SIG "\x89PNG\r\n\x1a\n"
+#include "png.h"
 
 int main() {
     FILE* fptr = fopen("pngTest.png", "rb");
@@ -14,13 +14,9 @@ int main() {
     }
 
     printf("opened file\n");
-//Refactor into validator function
-    char sig[sizeof(PNG_SIG) - 1];
-    bool isPNG = fread(sig, 1, sizeof(sig), fptr) == sizeof(sig) &&
-           memcmp(sig, PNG_SIG, sizeof(sig)) == 0;
 
+    bool isPNG = validatePNG(fptr);
     printf("%d\n", isPNG);
-
 
     char chunkSize[4];
 
