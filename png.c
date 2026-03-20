@@ -23,8 +23,8 @@ int readChunkSize(FILE* fptr) {
     }
 
     return
-        ((unsigned char)chunkSize[0] << 24) |
-        ((unsigned char)chunkSize[1] << 16) |
-        ((unsigned char)chunkSize[2] << 8)  |
-        ((unsigned char)chunkSize[3]);
+        ((unsigned int)chunkSize[0] << 24) |
+        ((unsigned int)chunkSize[1] << 16) |
+        ((unsigned int)chunkSize[2] << 8)  |
+        ((unsigned int)chunkSize[3]);
 }
