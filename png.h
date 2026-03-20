@@ -5,6 +5,6 @@
 #include <stdbool.h>
 
 bool validatePNG(FILE* fptr);
-int readChunkSize(FILE* fptr);
+bool readChunkSize(FILE* fptr, unsigned int* outSize);
 
 #endif

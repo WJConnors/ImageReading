@@ -15,9 +15,13 @@ int main() {
     printf("opened file\n");
 
     bool isPNG = validatePNG(fptr);
-    printf("%d\n", isPNG);
+    printf("Is PNG: %d\n", isPNG);
 
-    int size = readChunkSize(fptr);
+    unsigned int size;
+    if (!readChunkSize(fptr, &size)) {
+        printf("Filed to read chunk size");
+        
+    }
 
     printf("Chunk size: %i\n", size);
 
