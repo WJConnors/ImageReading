@@ -17,9 +17,9 @@ int main() {
     bool isPNG = validatePNG(fptr);
     printf("%d\n", isPNG);
 
-    unsigned int size = readChunkSize(fptr);
+    int size = readChunkSize(fptr);
 
-    printf("Chunk size: %u\n", size);
+    printf("Chunk size: %i\n", size);
 
     fclose(fptr);
     return 0;
