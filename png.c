@@ -15,18 +15,22 @@ bool validatePNG(FILE* fptr) {
     return readBytes(fptr, sig, sizeof(sig)) &&
             memcmp(sig, PNG_SIG, sizeof(sig)) == 0;
 }
-//TODO: Extract hex to into into own function
+
 bool readChunkSize(FILE* fptr, unsigned int* outSize) {
     unsigned char chunk[4];
     if (!readBytes(fptr, chunk, 4)) {
         return false;
     }
 
-    *outSize =
+    *outSize = hexToInt(chunk);
+
+    return true;
+}
+
+unsigned int hexToInt(unsigned char chunk[4]) {
+    return
         ((unsigned int)chunk[0] << 24) |
         ((unsigned int)chunk[1] << 16) |
         ((unsigned int)chunk[2] << 8)  |
         ((unsigned int)chunk[3]);
-
-    return true;
 }
