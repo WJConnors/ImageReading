@@ -3,8 +3,6 @@
 
 #include "png.h"
 
-#define PNG_SIG "\x89PNG\r\n\x1a\n"
-
 int main() {
     FILE* fptr = fopen("pngTest.png", "rb");
     FILE* out = fopen("HEX.txt", "w");
