@@ -6,7 +6,7 @@
 
 #define PNG_SIG "\x89PNG\r\n\x1a\n"
 
-static bool readBytes(FILE* fptr, unsigned char* buffer, size_t readSize) {
+bool readBytes(FILE* fptr, unsigned char* buffer, size_t readSize) {
     return fread(buffer, 1, readSize, fptr) == readSize;
 }
 
